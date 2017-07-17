@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:paddingBottom="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+
+        <LinearLayout
+            android:layout_width="80sp"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+           <ImageView
+                android:id="@+id/postOwnerImage"
+               android:layout_marginTop="15sp"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                app:srcCompat="@drawable/back" />
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="270sp"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:paddingLeft="20sp"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/postOwner"
+                android:layout_width="210dp"
+                android:fontFamily="georgia"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="bebewinks" />
+
+
+            <TextView
+                android:id="@+id/postTitle"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:fontFamily="georgia"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:layout_marginBottom="10sp"
+                android:text="How do I incorporate Object oriented programming." />
+
+
+            <TextView
+                android:id="@+id/postBody"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="georgia"
+                android:text="On the other hand, self-promotion. Governor Bustamante governor, since at the time he was refusing to run, thinking he’d draw support away from the actual governor.) When FOX sued Al Franken for using the phrase “Fair and Balanced”, Flemming wrote a play with the name." />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</RelativeLayout>

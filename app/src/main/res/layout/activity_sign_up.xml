@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dell.fridaycamp.SignUp">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="551dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+
+
+
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/jsontext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text Goes here"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="13dp" />
+
+        <Button
+            android:id="@+id/getJson"
+            android:onClick="getJson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Json" />
+
+        <Button
+            android:id="@+id/parseJson"
+            android:onClick="parseJson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Parse Json" />
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
