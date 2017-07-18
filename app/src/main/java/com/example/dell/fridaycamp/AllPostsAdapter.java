@@ -2,6 +2,7 @@ package com.example.dell.fridaycamp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -106,12 +107,24 @@ public class AllPostsAdapter extends ArrayAdapter {
         Picasso
                 .with(getContext())
                 .load("http://fridaycamp.com/" + allPostsFeeder.getImg())
+                .transform(new CircleTransform())
+                .placeholder(R.drawable.back)
                 .resize(50, 50)
                 .centerCrop()
                // .fit() // will explain later
                 .into(allPostsHolder.img_txt);
 
+        TextView myTextView7 = (TextView) row.findViewById(R.id.postOwner);
+        Typeface typeface9 = Typeface.createFromAsset(getContext().getAssets(), "font/JosefinSlab-Bold.ttf");
+        myTextView7.setTypeface(typeface9);
 
+        TextView myTextView17 = (TextView) row.findViewById(R.id.postTitle);
+        Typeface typeface19 = Typeface.createFromAsset(getContext().getAssets(), "font/Georgia.ttf");
+        myTextView17.setTypeface(typeface19);
+
+        TextView myTextView27 = (TextView) row.findViewById(R.id.postBody);
+        Typeface typeface29 = Typeface.createFromAsset(getContext().getAssets(), "font/Georgia.ttf");
+        myTextView27.setTypeface(typeface29);
 
         TextView goToSinglePost = (TextView) row.findViewById(R.id.postBody);
         // Cache row position inside the button using `setTag`

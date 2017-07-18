@@ -15,6 +15,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -30,14 +34,28 @@ import java.net.URLEncoder;
 public class HomePage extends AppCompatActivity {
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+     //   Boolean logged_in = login_sessions.isLoggedIn();
+
+        Sessions login_sessions = new Sessions(getApplicationContext());
+
+        // Check if user is already logged in or not
+        if (login_sessions.isLoggedIn()) {
+            // User is already logged in. Take him to main activity
+            Intent intent = new Intent(HomePage.this, AllPosts.class);
+            startActivity(intent);
+            finish();
+        }
 
 
-      String signUpLink = "Not a member?, register here.";
+
+        String signUpLink = "Not a member? Register here.";
 
         SpannableString content = new SpannableString(signUpLink);
 
@@ -129,7 +147,7 @@ public class HomePage extends AppCompatActivity {
 
             String type = params[0];
 
-            String login_url = "http://tsutsus.com/login.php";
+            String login_url = "http://fridaycamp.com/views/mobile_sign_in.php";
 
             if(type.equals("login")) {
 
@@ -226,13 +244,71 @@ public class HomePage extends AppCompatActivity {
 
             loadingImg.setVisibility(View.INVISIBLE);
 
-          String resultGet =    result;
 
-             if (resultGet == null) {
 
-                 Toast.makeText(getApplicationContext(), "Poor network connection.", Toast.LENGTH_LONG).show();
 
-              }
+
+
+             if (result.equals("1")) {
+
+                 Toast.makeText(getApplicationContext(), "Login failed. Try again.", Toast.LENGTH_LONG).show();
+
+              } else if (result.equals("2"))  {
+
+                 Toast.makeText(getApplicationContext(), "Username does not exist", Toast.LENGTH_LONG).show();
+
+             } else {
+
+                 Sessions login_sessions = new Sessions(getApplicationContext());
+
+
+                try {
+
+                      JSONObject json_object = new JSONObject(result);
+
+
+                     JSONArray json_array = json_object.getJSONArray("sign_in_response");
+
+                     int count = 0;
+
+                     while(count < json_array.length()) {
+
+
+                         JSONObject JO = json_array.getJSONObject(count);
+
+                         String id = JO.getString("id");
+
+
+                         login_sessions.setID(id);
+
+
+                         count++;
+
+
+                     }
+
+
+                 } catch (JSONException e) {
+
+
+                     e.printStackTrace();
+
+
+                 }
+
+
+
+
+
+
+
+                 login_sessions.setLogin(true);
+
+                 Intent gotoiusdduis = new Intent(HomePage.this, AllPosts.class);
+
+                 startActivity(gotoiusdduis);
+
+             }
 
 
 
@@ -275,7 +351,7 @@ public void toast() {
 
     public void goToSignUp(View view) {
 
-        Intent intent = new Intent(HomePage.this, Register.class);
+        Intent intent = new Intent(HomePage.this, AllPosts.class);
 
         startActivity(intent);
 

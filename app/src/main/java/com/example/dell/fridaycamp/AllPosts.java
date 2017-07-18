@@ -52,6 +52,8 @@ public class AllPosts extends AppCompatActivity {
             setContentView(R.layout.activity_all_posts);
 
 
+            Sessions login_sessions = new Sessions(getApplicationContext());
+            Toast.makeText(getApplicationContext(), login_sessions.getID(), Toast.LENGTH_LONG).show();
 
             listOfPosts = (ListView) findViewById(R.id.list1);
 
@@ -175,8 +177,6 @@ public class AllPosts extends AppCompatActivity {
                 json_object = new JSONObject(jsonString);
 
                 allPostsAdapter.clearG();
-
-
 
                 json_array = json_object.getJSONArray("allposts");
 
